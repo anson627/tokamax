@@ -1,0 +1,81 @@
+{
+ "reward": 0.0,
+ "invalid": 0,
+ "speedup_geomean": 0.9647913578807633,
+ "latency_us_geomean": 3829.0384525515765,
+ "roofline_fraction_geomean": 0.4577764063765182,
+ "max_normalized_error": 0.3988157957792282,
+ "mode": "full",
+ "split": "validation",
+ "s_target": 1.6,
+ "invalid_reasons": [],
+ "notes": {
+  "submission_peak_mem_gib": 5.907351732254028
+ },
+ "edge_cases": [],
+ "workloads": [
+  {
+   "name": "deepseek_v3_ep4-m8192-balanced",
+   "M": 8192,
+   "routing": "balanced",
+   "active_experts": 64.0,
+   "ok": true,
+   "global_err": 0.003964655101299286,
+   "row_err": 0.005059543997049332,
+   "finite": true,
+   "calls_per_block": 137,
+   "starter_us": 3572.3014306559044,
+   "sub_us": 3737.0051605867848,
+   "speedup": 0.9556961716873414,
+   "block_ratios": [
+    0.9673319439956373,
+    0.9556961716873414
+   ],
+   "blocks_us": {
+    "starter": [
+     3607.758510945769,
+     3570.5816204413536,
+     3572.3014306559044
+    ],
+    "submission": [
+     3710.3809999990535,
+     3737.0051605867848
+    ]
+   },
+   "tflops": 193.0836257166692,
+   "roofline_frac": 0.4690503190023253
+  },
+  {
+   "name": "deepseek_v3_ep4-m8192-skewed",
+   "M": 8192,
+   "routing": "skewed",
+   "active_experts": 64.0,
+   "ok": true,
+   "global_err": 0.003988157957792282,
+   "row_err": 0.005114060360938311,
+   "finite": true,
+   "calls_per_block": 137,
+   "starter_us": 3820.5488978089643,
+   "sub_us": 3923.3382992750417,
+   "speedup": 0.973973101302668,
+   "block_ratios": [
+    0.9784280155847388,
+    0.973973101302668
+   ],
+   "blocks_us": {
+    "starter": [
+     3815.781291968363,
+     3821.903043799931,
+     3820.5488978089643
+    ],
+    "submission": [
+     3903.0384525548247,
+     3923.3382992750417
+    ]
+   },
+   "tflops": 183.91340503604533,
+   "roofline_frac": 0.44677346916794286
+  }
+ ],
+ "elapsed_s": 29.704150624999784
+}

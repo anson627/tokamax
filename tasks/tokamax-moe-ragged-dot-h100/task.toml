@@ -1,0 +1,82 @@
+schema_version = "1.4"
+
+artifacts = ["/workspace/submission"]
+
+[task]
+name = "inference-optimization-1/tokamax-moe-ragged-dot-h100"
+description = "Speed up a bf16 mixture-of-experts expert layer (two ragged dots with a SwiGLU) on one H100, starting from Tokamax's Pallas Mosaic GPU kernel."
+keywords = ["jax", "pallas", "mosaic-gpu", "moe", "grouped-gemm", "ragged-dot", "hopper"]
+
+[metadata]
+organization = "anson627"
+category = "GPU Kernels"
+
+[metadata.reward]
+description = "S = geometric mean over 20 workloads of starter time / submission time, each the median of three submission blocks, each compared with the two starter blocks around it in the same run. reward = clip(ln(S) / ln(2.0), 0, 1) for a valid submission; any correctness, build, prepare-time or memory failure gives invalid = 1 and reward 0. Evaluator failures write no reward."
+direction = "higher_better"
+theoretical_best = 1.0
+# PROVISIONAL: awaiting hosted baseline calibration.
+# runs = 3 is the planned count, not completed measurements.
+baseline_validation = { mean = 0.0, std = 0.0, runs = 3 }
+baseline_test = { mean = 0.0, std = 0.0, runs = 3 }
+
+[[metadata.metrics]]
+name = "speedup_geomean"
+description = "Geometric mean over workloads of starter time / submission time (0 if unavailable)."
+direction = "higher_better"
+unit = "x"
+
+[[metadata.metrics]]
+name = "latency_us_geomean"
+description = "Geometric mean over workloads of the median submission block's time per moe_ffn call (0 if unavailable)."
+direction = "lower_better"
+unit = "microseconds"
+
+[[metadata.metrics]]
+name = "roofline_fraction_geomean"
+description = "Geometric mean over workloads of max(FLOPs / 989 TFLOP/s, minimum bytes / 3.35 TB/s) / submission time (0 if unavailable)."
+direction = "higher_better"
+
+[[metadata.metrics]]
+name = "max_normalized_error"
+description = "Largest error divided by its tolerance (1e-2 global, 5e-2 per row) over all checked outputs; above 1 fails (0 if unavailable)."
+direction = "lower_better"
+
+[verifier]
+timeout_sec = 3600.0
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+build_timeout_sec = 1800.0
+cpus = 8
+memory_mb = 65536
+storage_mb = 40960
+gpus = 1
+gpu_types = ["H100!"]
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 43200
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 8
+memory_mb = 65536
+storage_mb = 40960
+gpus = 1
+gpu_types = ["H100!"]
+network_mode = "allowlist"
+allowed_hosts = [
+  "x.ai",
+  "storage.googleapis.com",
+]
+
+[environment.healthcheck]
+command = "test -d /workspace/validation && /opt/venv/bin/python -c 'import jax'"
+timeout_sec = 120
+retries = 3
+
+[metadata.execution]
+submission_uid = 2000

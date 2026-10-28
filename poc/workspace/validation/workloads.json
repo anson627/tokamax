@@ -1,0 +1,134 @@
+{
+ "models": {
+  "qwen3_30b_a3b": {
+   "E": 128,
+   "H": 2048,
+   "I": 768,
+   "top_k": 8
+  },
+  "deepseek_v3": {
+   "E": 256,
+   "H": 7168,
+   "I": 2048,
+   "top_k": 8
+  }
+ },
+ "quick": [
+  "qwen3_30b_a3b-t32-balanced",
+  "deepseek_v3-t2048-skewed"
+ ],
+ "workloads": [
+  {
+   "name": "qwen3_30b_a3b-t32-balanced",
+   "model": "qwen3_30b_a3b",
+   "tokens": 32,
+   "routing": "balanced",
+   "seed": 1000
+  },
+  {
+   "name": "qwen3_30b_a3b-t32-skewed",
+   "model": "qwen3_30b_a3b",
+   "tokens": 32,
+   "routing": "skewed",
+   "seed": 1001
+  },
+  {
+   "name": "qwen3_30b_a3b-t256-balanced",
+   "model": "qwen3_30b_a3b",
+   "tokens": 256,
+   "routing": "balanced",
+   "seed": 1002
+  },
+  {
+   "name": "qwen3_30b_a3b-t256-skewed",
+   "model": "qwen3_30b_a3b",
+   "tokens": 256,
+   "routing": "skewed",
+   "seed": 1003
+  },
+  {
+   "name": "qwen3_30b_a3b-t2048-balanced",
+   "model": "qwen3_30b_a3b",
+   "tokens": 2048,
+   "routing": "balanced",
+   "seed": 1004
+  },
+  {
+   "name": "qwen3_30b_a3b-t2048-skewed",
+   "model": "qwen3_30b_a3b",
+   "tokens": 2048,
+   "routing": "skewed",
+   "seed": 1005
+  },
+  {
+   "name": "qwen3_30b_a3b-t8192-balanced",
+   "model": "qwen3_30b_a3b",
+   "tokens": 8192,
+   "routing": "balanced",
+   "seed": 1006
+  },
+  {
+   "name": "qwen3_30b_a3b-t8192-skewed",
+   "model": "qwen3_30b_a3b",
+   "tokens": 8192,
+   "routing": "skewed",
+   "seed": 1007
+  },
+  {
+   "name": "deepseek_v3-t32-balanced",
+   "model": "deepseek_v3",
+   "tokens": 32,
+   "routing": "balanced",
+   "seed": 1008
+  },
+  {
+   "name": "deepseek_v3-t32-skewed",
+   "model": "deepseek_v3",
+   "tokens": 32,
+   "routing": "skewed",
+   "seed": 1009
+  },
+  {
+   "name": "deepseek_v3-t256-balanced",
+   "model": "deepseek_v3",
+   "tokens": 256,
+   "routing": "balanced",
+   "seed": 1010
+  },
+  {
+   "name": "deepseek_v3-t256-skewed",
+   "model": "deepseek_v3",
+   "tokens": 256,
+   "routing": "skewed",
+   "seed": 1011
+  },
+  {
+   "name": "deepseek_v3-t2048-balanced",
+   "model": "deepseek_v3",
+   "tokens": 2048,
+   "routing": "balanced",
+   "seed": 1012
+  },
+  {
+   "name": "deepseek_v3-t2048-skewed",
+   "model": "deepseek_v3",
+   "tokens": 2048,
+   "routing": "skewed",
+   "seed": 1013
+  },
+  {
+   "name": "deepseek_v3-t8192-balanced",
+   "model": "deepseek_v3",
+   "tokens": 8192,
+   "routing": "balanced",
+   "seed": 1014
+  },
+  {
+   "name": "deepseek_v3-t8192-skewed",
+   "model": "deepseek_v3",
+   "tokens": 8192,
+   "routing": "skewed",
+   "seed": 1015
+  }
+ ]
+}

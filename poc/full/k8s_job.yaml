@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: moe-task-h100
+  namespace: default
+  labels:
+    kueue.x-k8s.io/queue-name: <your-local-queue>  # if the cluster uses Kueue
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: main
+        image: nvcr.io/nvidia/cuda:12.9.1-devel-ubuntu24.04
+        command: ["bash", "-lc"]
+        args:
+        - |
+          set -e
+          apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip util-linux procps >/dev/null
+          python3 -m venv /opt/venv
+          /opt/venv/bin/pip install -q "jax[cuda12]==0.11.1" numpy==2.3.4 einshape==1.0
+          /opt/venv/bin/python -c "import jax; print(jax.__version__, jax.devices())"
+          touch /tmp/ready
+          sleep 21600
+        resources:
+          requests: {cpu: "8", memory: 96Gi, nvidia.com/gpu: "1"}
+          limits: {cpu: "8", memory: 96Gi, nvidia.com/gpu: "1"}

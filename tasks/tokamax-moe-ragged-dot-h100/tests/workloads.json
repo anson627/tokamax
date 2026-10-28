@@ -1,0 +1,160 @@
+{
+ "split": "test",
+ "models": {
+  "qwen3_30b_a3b": {
+   "E": 128,
+   "H": 2048,
+   "I": 768,
+   "seed": 111
+  },
+  "deepseek_v3_ep4": {
+   "E": 64,
+   "H": 7168,
+   "I": 2048,
+   "seed": 112
+  }
+ },
+ "quick": [],
+ "workloads": [
+  {
+   "name": "qwen3_30b_a3b-m6144-balanced",
+   "model": "qwen3_30b_a3b",
+   "M": 6144,
+   "routing": "balanced",
+   "seed": 5000
+  },
+  {
+   "name": "qwen3_30b_a3b-m6144-skewed",
+   "model": "qwen3_30b_a3b",
+   "M": 6144,
+   "routing": "skewed",
+   "seed": 5001
+  },
+  {
+   "name": "qwen3_30b_a3b-m12288-balanced",
+   "model": "qwen3_30b_a3b",
+   "M": 12288,
+   "routing": "balanced",
+   "seed": 5002
+  },
+  {
+   "name": "qwen3_30b_a3b-m12288-skewed",
+   "model": "qwen3_30b_a3b",
+   "M": 12288,
+   "routing": "skewed",
+   "seed": 5003
+  },
+  {
+   "name": "qwen3_30b_a3b-m49152-balanced",
+   "model": "qwen3_30b_a3b",
+   "M": 49152,
+   "routing": "balanced",
+   "seed": 5004
+  },
+  {
+   "name": "qwen3_30b_a3b-m49152-skewed",
+   "model": "qwen3_30b_a3b",
+   "M": 49152,
+   "routing": "skewed",
+   "seed": 5005
+  },
+  {
+   "name": "qwen3_30b_a3b-m98304-balanced",
+   "model": "qwen3_30b_a3b",
+   "M": 98304,
+   "routing": "balanced",
+   "seed": 5006
+  },
+  {
+   "name": "qwen3_30b_a3b-m98304-skewed",
+   "model": "qwen3_30b_a3b",
+   "M": 98304,
+   "routing": "skewed",
+   "seed": 5007
+  },
+  {
+   "name": "qwen3_30b_a3b-m122880-balanced",
+   "model": "qwen3_30b_a3b",
+   "M": 122880,
+   "routing": "balanced",
+   "seed": 5008
+  },
+  {
+   "name": "qwen3_30b_a3b-m122880-skewed",
+   "model": "qwen3_30b_a3b",
+   "M": 122880,
+   "routing": "skewed",
+   "seed": 5009
+  },
+  {
+   "name": "deepseek_v3_ep4-m3072-balanced",
+   "model": "deepseek_v3_ep4",
+   "M": 3072,
+   "routing": "balanced",
+   "seed": 5010
+  },
+  {
+   "name": "deepseek_v3_ep4-m3072-skewed",
+   "model": "deepseek_v3_ep4",
+   "M": 3072,
+   "routing": "skewed",
+   "seed": 5011
+  },
+  {
+   "name": "deepseek_v3_ep4-m6144-balanced",
+   "model": "deepseek_v3_ep4",
+   "M": 6144,
+   "routing": "balanced",
+   "seed": 5012
+  },
+  {
+   "name": "deepseek_v3_ep4-m6144-skewed",
+   "model": "deepseek_v3_ep4",
+   "M": 6144,
+   "routing": "skewed",
+   "seed": 5013
+  },
+  {
+   "name": "deepseek_v3_ep4-m24576-balanced",
+   "model": "deepseek_v3_ep4",
+   "M": 24576,
+   "routing": "balanced",
+   "seed": 5014
+  },
+  {
+   "name": "deepseek_v3_ep4-m24576-skewed",
+   "model": "deepseek_v3_ep4",
+   "M": 24576,
+   "routing": "skewed",
+   "seed": 5015
+  },
+  {
+   "name": "deepseek_v3_ep4-m49152-balanced",
+   "model": "deepseek_v3_ep4",
+   "M": 49152,
+   "routing": "balanced",
+   "seed": 5016
+  },
+  {
+   "name": "deepseek_v3_ep4-m49152-skewed",
+   "model": "deepseek_v3_ep4",
+   "M": 49152,
+   "routing": "skewed",
+   "seed": 5017
+  },
+  {
+   "name": "deepseek_v3_ep4-m61440-balanced",
+   "model": "deepseek_v3_ep4",
+   "M": 61440,
+   "routing": "balanced",
+   "seed": 5018
+  },
+  {
+   "name": "deepseek_v3_ep4-m61440-skewed",
+   "model": "deepseek_v3_ep4",
+   "M": 61440,
+   "routing": "skewed",
+   "seed": 5019
+  }
+ ]
+}
